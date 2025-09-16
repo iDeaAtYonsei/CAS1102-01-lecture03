@@ -8,35 +8,19 @@ class Shape:
     """
 
 
-class Circle(Shape):
-    # TODO: Implement the constructor
-    """
-    - Initialize a Circle with one parameter: radius.
-    - Store radius as float for consistent calculations.
-    """
-
-    # TODO: Implement "measure" to return the area of the circle.
+# TODO: Create a Circle class that inherits from Shape.
+# - Initialize it with a radius (float).
+# - Implement the measure method to return the area of the circle.
 
 
-class Rectangle(Shape):
-    """
-    - Initialize a Rectangle with two parameters: width and height.
-    - Store them as float for consistent calculations.
-    """
-
-    # TODO: Implement "measure" to return the area of the rectangle.
+# TODO: Create a Rectangle class that inherits from Shape.
+# - Initialize it with width and height (floats).
+# - Implement the measure method to return the area of the rectangle.
 
 
-class Triangle(Shape):
-    """
-    - Initialize a Triangle with three vertex coordinates (p1, p2, p3).
-    - Each vertex should be a tuple of (x, y).
-    """
-
-    # TODO: Implement "measure" to return the area of the triangle.
-    """
-    - Use Heron's formula.
-    """
+# TODO: Create a Triangle class that inherits from Shape.
+# - Initialize it with three vertices, each a tuple of (x, y).
+# - Implement the measure method to return the area of the triangle using Heron's formula.
 
 
 if __name__ == "__main__":
