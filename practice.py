@@ -1,4 +1,5 @@
 from typing import List
+from abc import abstractmethod
 import math
 
 
@@ -7,6 +8,7 @@ class Shape:
     """
     - This is an abstract method, so it should just raise NotImplementedError.
     """
+    @abstractmethod
     def measure(self):
         raise NotImplementedError
 
