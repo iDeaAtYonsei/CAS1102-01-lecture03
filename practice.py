@@ -38,12 +38,12 @@ class Rectangle(Shape):
 class Triangle(Shape):
     def __init__(self, p1: tuple, p2: tuple, p3: tuple):
         self.d1 = math.sqrt((p3[0] - p2[0])**2 + (p3[1] - p2[1])**2)
-        self.d2 = math.sqrt((p3[0] - p1[0])**2 + (p3[1] - p2[1])**2)
+        self.d2 = math.sqrt((p3[0] - p1[0])**2 + (p3[1] - p1[1])**2)
         self.d3 = math.sqrt((p2[0] - p1[0])**2 + (p2[1] - p1[1])**2)
         self.s = (self.d1 + self.d2 + self.d3)/2
 
     def measure(self):
-        return math.sqrt(self.s(self.s - self.d1)(self.s - self.d2)(self.s - self.d3))
+        return math.sqrt(self.s*(self.s - self.d1)*(self.s - self.d2)*(self.s - self.d3))
 
 
 if __name__ == "__main__":
