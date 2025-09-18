@@ -1,8 +1,11 @@
 from typing import List
+import math
 
 
 class Shape:
     # TODO: Define the method "measure".
+    def measure(self):
+        raise NotImplementedError
     """
     - This is an abstract method, so it should just raise NotImplementedError.
     """
@@ -11,17 +14,39 @@ class Shape:
 # TODO: Create a Circle class that inherits from Shape.
 # - Initialize it with a radius (float).
 # - Implement the measure method to return the area of the circle.
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = float(radius)
 
+    def measure(self):
+        return (radius**2)*math.pi
 
 # TODO: Create a Rectangle class that inherits from Shape.
 # - Initialize it with width and height (floats).
 # - Implement the measure method to return the area of the rectangle.
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = float(width)
+        self.height = float(height)
 
+    def measure(self):
+        return width * height
 
 # TODO: Create a Triangle class that inherits from Shape.
 # - Initialize it with three vertices, each a tuple of (x, y).
 # - Implement the measure method to return the area of the triangle using Heron's formula.
+class Triangle(Shape):
+    def __init__(self, p1, p2, p3):
+        self.p1 = p1
+        self.p2 = p2
+        self.p3 = p3
 
+    def measure(self):
+        a = math.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
+        b = math.sqrt((p2[0]-p3[0])**2 + (p2[1]-p3[1])**2)
+        c = math.sqrt((p1[0]-p3[0])**2 + (p1[1]-p3[1])**2)
+        s = (a + b + c) / 2
+        return math.sqrt(s * (s-a) * (s-b) * (s-c))
 
 if __name__ == "__main__":
     shapes: List[Shape] = [
