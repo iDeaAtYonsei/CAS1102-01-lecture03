@@ -1,14 +1,14 @@
 from typing import List
 import math
 
+
 class Shape:
     # TODO: Define the method "measure".
-    def measure(self) -> float:
-        raise NotImplementedError("Subclass must implement this method")
-
     """
     - This is an abstract method, so it should just raise NotImplementedError.
     """
+    def measure(self) -> float:
+        raise NotImplementedError("Subclass must implement this method")
 
 
 # TODO: Create a Circle class that inherits from Shape.
@@ -17,6 +17,9 @@ class Shape:
 class Circle(Shape):
     def __init__(self, radius: float):
         self.radius = radius
+
+    def measure(self) -> float:
+        return math.pi * (self.radius ** 2)
 
 
 # TODO: Create a Rectangle class that inherits from Shape.
@@ -29,7 +32,6 @@ class Rectangle(Shape):
 
     def measure(self) -> float:
         return self.width * self.height
-
 
 
 # TODO: Create a Triangle class that inherits from Shape.
@@ -48,6 +50,7 @@ class Triangle(Shape):
         s = (a + b + c) / 2
         return math.sqrt(s * (s - a) * (s - b) * (s - c))
 
+
 if __name__ == "__main__":
     shapes: List[Shape] = [
         Circle(radius=1.0),
@@ -56,4 +59,5 @@ if __name__ == "__main__":
     ]
 
     print("Individual areas:", [round(s.measure(), 4) for s in shapes])
+
 
