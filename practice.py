@@ -1,26 +1,52 @@
 from typing import List
+import math
 
 
 class Shape:
-    # TODO: Define the method "measure".
-    """
-    - This is an abstract method, so it should just raise NotImplementedError.
-    """
+    def measure(self):
+        """
+        - This is an abstract method, so it should just raise NotImplementedError.
+        """
+        raise NotImplementedError('measure() must be implemented in subclasses')
 
 
-# TODO: Create a Circle class that inherits from Shape.
-# - Initialize it with a radius (float).
-# - Implement the measure method to return the area of the circle.
+class Circle(Shape):
+    def __init__(self, radius: float):
+        self.radius = radius
+
+    def measure(self) -> float:
+        """Return area = π * r^2"""
+        return math.pi * self.radius ** 2
 
 
-# TODO: Create a Rectangle class that inherits from Shape.
-# - Initialize it with width and height (floats).
-# - Implement the measure method to return the area of the rectangle.
+class Rectangle(Shape):
+    def __init__(self, width: float, height: float):
+        self.width = width
+        self.height = height
 
+    def measure(self) -> float:
+        """Return area = width * height"""
+        return self.width * self.height
 
-# TODO: Create a Triangle class that inherits from Shape.
-# - Initialize it with three vertices, each a tuple of (x, y).
-# - Implement the measure method to return the area of the triangle using Heron's formula.
+class Triangle(Shape):
+    def __init__(self, p1: tuple, p2: tuple, p3: tuple):
+        self.p1 = p1  # (x1, y1)
+        self.p2 = p2  # (x2, y2)
+        self.p3 = p3  # (x3, y3)
+
+    def measure(self) -> float:
+        """Compute area using Heron's formula from vertex coordinates."""
+        def distance(point1, point2):
+            return math.sqrt((point2[0] - point1[0])**2 + (point2[1] - point1[1])**2)
+        
+        a = distance(self.p1, self.p2)
+        b = distance(self.p2, self.p3)
+        c = distance(self.p3, self.p1)
+
+        s = (a + b + c) / 2
+        area = math.sqrt(s * (s - a) * (s - b) * (s - c))
+        return area
+
 
 
 if __name__ == "__main__":
