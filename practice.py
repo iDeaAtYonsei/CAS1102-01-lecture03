@@ -7,8 +7,8 @@ class Shape(List):
     - This is an abstract method, so it should just raise NotImplementedError.
     """
     def measure(self):
-        pass
-
+        raise NotImplementedError
+        
 # TODO: Create a Circle class that inherits from Shape.
 # - Initialize it with a radius (float).
 # - Implement the measure method to return the area of the circle.
