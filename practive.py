@@ -1,4 +1,4 @@
-from typing import List  
+from typing import list  
 class Shape:
 # TODO: Define the method "measure".
     """
