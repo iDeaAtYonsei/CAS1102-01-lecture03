@@ -8,10 +8,7 @@ class Shape(ABC):
     """
     @abstractmethod
     def measure(self):
-        try:
-            pass
-        except:
-            raise NotImplementedError
+         raise NotImplementedError
 
 
 # TODO: Create a Circle class that inherits from Shape.
