@@ -38,7 +38,7 @@ class Triangle(Shape):
         c = dist(self.p3, self.p1)
 
         s = (a + b + c) / 2
-        area = math.sqrt(s * (s-1) * (s-b) * (s-c))
+        area = math.sqrt(s * (s-a) * (s-b) * (s-c))
         return area
 
 
