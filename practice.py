@@ -16,7 +16,7 @@ class Shape:
 # - Implement the measure method to return the area of the circle.
 class Circle(Shape):
     def __init__(self, radius):
-        self.radius = radius
+        self.radius = float(radius)
 
     def measure(self):
         return (radius**2)*math.pi
@@ -26,8 +26,8 @@ class Circle(Shape):
 # - Implement the measure method to return the area of the rectangle.
 class Rectangle(Shape):
     def __init__(self, width, height):
-        self.width = width
-        self.height = height
+        self.width = float(width)
+        self.height = float(height)
 
     def measure(self):
         return width * height
