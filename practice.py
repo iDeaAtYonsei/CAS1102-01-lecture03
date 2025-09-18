@@ -6,21 +6,49 @@ class Shape:
     """
     - This is an abstract method, so it should just raise NotImplementedError.
     """
-
-
+    def measure(self):
+        raise NotImplementedError("Subclasses must implement this method")
 # TODO: Create a Circle class that inherits from Shape.
 # - Initialize it with a radius (float).
 # - Implement the measure method to return the area of the circle.
+class Circle(Shape):
+    def __init__(self, radius):
+            self.radius = float(radius)
+
+    def measure(self):
+        return (self.radius ** 2) * 3.14
 
 
 # TODO: Create a Rectangle class that inherits from Shape.
 # - Initialize it with width and height (floats).
 # - Implement the measure method to return the area of the rectangle.
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = float(width)
+        self.height = float(height)
 
+    def measure(self):
+        return self.width * self.height
 
 # TODO: Create a Triangle class that inherits from Shape.
 # - Initialize it with three vertices, each a tuple of (x, y).
 # - Implement the measure method to return the area of the triangle using Heron's formula.
+class Triangle(Shape):
+    def __init__(self, p1, p2, p3):
+        self.p1 = p1
+        self.p2 = p2
+        self.p3 = p3
+
+    def distance(self, a, b):
+        return ((b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2) ** 0.5
+
+    def measure(self):
+        a = self.distance(self.p1, self.p2)
+        b = self.distance(self.p2, self.p3)
+        c = self.distance(self.p3, self.p1)
+        s = (a + b + c) / 2
+        return (s * (s - a) * (s - b) * (s - c)) ** 0.5
+
 
 
 if __name__ == "__main__":
