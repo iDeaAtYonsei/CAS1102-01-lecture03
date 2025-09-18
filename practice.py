@@ -7,7 +7,7 @@ class Shape:
     - This is an abstract method, so it should just raise NotImplementedError.
     """
     def measure(self):
-        raise NotImplementedError("Subclasses must implement measure()")
+        raise NotImplementedError
 
 
 # TODO: Create a Circle class that inherits from Shape.
