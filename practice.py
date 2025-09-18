@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 
 class Shape:
@@ -6,21 +7,45 @@ class Shape:
     """
     - This is an abstract method, so it should just raise NotImplementedError.
     """
+    def measure(self):
+        raise NotImplementedError
+    
 
 
 # TODO: Create a Circle class that inherits from Shape.
 # - Initialize it with a radius (float).
 # - Implement the measure method to return the area of the circle.
+class Circle(Shape):
+    def __init__(self,radius:float):
+        self.r = radius
+
+    def measure(self):
+        return math.pi*(self.r)**2
+
 
 
 # TODO: Create a Rectangle class that inherits from Shape.
 # - Initialize it with width and height (floats).
 # - Implement the measure method to return the area of the rectangle.
-
+class Rectangle(Shape):
+    def __init__(self,width:float,height:float):
+        self.w = width
+        self.h = height
+    def measure(self):
+        return self.w * self.h
 
 # TODO: Create a Triangle class that inherits from Shape.
 # - Initialize it with three vertices, each a tuple of (x, y).
 # - Implement the measure method to return the area of the triangle using Heron's formula.
+class Triangle(Shape):
+    def __init__(self,p1,p2,p3):
+        self.A = math.dist(p2,p3)
+        self.B = math.dist(p3,p1)
+        self.C = math.dist(p1,p2)
+        self.s = (self.A + self.B + self.C) / 2
+    def measure(self):
+        return (self.s*(self.s-self.A)*(self.s-self.B)*(self.s-self.C))**(1/2)
+
 
 
 if __name__ == "__main__":
