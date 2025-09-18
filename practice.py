@@ -33,7 +33,7 @@ class Rectangle(Shape):
 # - Initialize it with three vertices, each a tuple of (x, y).
 # - Implement the measure method to return the area of the triangle using Heron's formula.
 class Triangle(Shape):
-    def __init__(self, p1: Tuple[float, float], p2: Tuple[float, float], p3: Tuple[float, float]):
+    def __init__(self, p1: tuple[float, float], p2: tuple[float, float], p3: tuple[float, float]):
         self.p1 = p1
         self.p2 = p2
         self.p3 = p3
