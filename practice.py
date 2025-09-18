@@ -1,5 +1,5 @@
 from typing import List
-import math as m
+import math as mt
 
 
 class Shape:
@@ -17,7 +17,7 @@ class Circle(Shape):
         self.radius = radius
 
     def measure(self) -> float:
-        return m.pi * r * r
+        return mt.pi * r * r
 
 # TODO: Create a Rectangle class that inherits from Shape.
 # - Initialize it with width and height (floats).
@@ -42,7 +42,7 @@ class Triangle(Shape):
 
     def measure(self) -> float:
         s = (self.a + self.b + self.c) / 2
-        return m.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
+        return mt.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
 
 
 
