@@ -1,27 +1,56 @@
 from typing import List
+import math
+from abc import ABC, abstractmethod
 
-
-class Shape:
+class Shape(ABC):
     # TODO: Define the method "measure".
     """
     - This is an abstract method, so it should just raise NotImplementedError.
     """
+    @abstractmethod
+    def measure(self):
+        pass
+
 
 
 # TODO: Create a Circle class that inherits from Shape.
 # - Initialize it with a radius (float).
 # - Implement the measure method to return the area of the circle.
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def measure(self):
+        return math.pi * self.radius ** 2
 
 
 # TODO: Create a Rectangle class that inherits from Shape.
 # - Initialize it with width and height (floats).
 # - Implement the measure method to return the area of the rectangle.
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    def measure(self):
+        return self.width * self.height
 
 
 # TODO: Create a Triangle class that inherits from Shape.
 # - Initialize it with three vertices, each a tuple of (x, y).
 # - Implement the measure method to return the area of the triangle using Heron's formula.
-
+class Triangle(Shape):
+    def __init__(self, p1, p2, p3):
+        self.p1 = p1
+        self.p2 = p2
+        self.p3 = p3
+    def dist(self, a, b):
+        return ((b[0]-a[0])**2 + (b[1]-a[1])**2)**0.5
+    def measure(self):
+        a = self.dist(self.p1, self.p2)
+        b = self.dist(self.p2, self.p3)
+        c = self.dist(self.p3, self.p1)
+        s = (a+b+c)/2
+        result = (s*(s-a)*(s-b)*(s-c))**0.5
+        return result
 
 if __name__ == "__main__":
     shapes: List[Shape] = [
